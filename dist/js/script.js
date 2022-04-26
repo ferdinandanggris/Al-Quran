@@ -137,8 +137,9 @@ fetch("dist/js/surat.json")
     data.data.forEach((element) => {
     if ((element.nomor)==surat) {
         listSuratTemp += templateSurat(element.surat,element.nomor,"isActive");   
+    }else{
+        listSuratTemp += templateSurat(element.surat,element.nomor);
     }
-    listSuratTemp += templateSurat(element.surat,element.nomor);
     listSurat.innerHTML = listSuratTemp;
     });
 });
