@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./dist/output.css" rel="stylesheet">
+</head>
+<body>
+
+    <header class="bg-teal-700 absolute top-0 left-0 w-full flex items-center z-10">
+        <div class="container">
+            <div class="flex items-center justify-between ">
+                <div class="px-4 flex">
+                    <div class="flex items-center mr-3">
+                        <button class="outline-none" id="hamburger">
+                            <svg
+                                class="w-6 h-6 text-white"
+                                x-show="!showMenu"
+                                fill="none"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                viewBox="0 0 24 24"
+                                stroke="currentColor"
+                            >
+                            <path d="M4 6h16M4 12h16M4 18h16"></path>
+                            </svg>
+                        </button>
+
+                        <nav id="nav-menu" class="hidden absolute py-5 bg-white shadow-lg max-w-[20em] w-full top-full left-0">
+                            <ul class="block text-center">
+                                <li class="group mb-5">
+                                    <input id="cari-surat" class="block w-[17em] py-3 border rounded-lg
+                                     text-base text-slate-900 mx-5 justify-between focus:outline-none" placeholder="Cari Surat">
+                                    </input>
+                                </li>
+                            </ul>
+                        <div class="max-h-[100vh] overflow-y-scroll">
+                            <ul id="list-surat" class="">
+                            </ul>
+                        </div>
+                        </nav>
+                    </div>
+                    <a href="" class="font-bold text-lg text-white block py-6">Al-Qur'an</a>
+                </div>
+                <div class="px-4 flex flex-between">
+                    <button class="outline-none mr-3" id="bookmark-btn" title="Penanda">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" style="fill: rgb(255, 255, 255);"><path d="M19 10.132v-6c0-1.103-.897-2-2-2H7c-1.103 0-2 .897-2 2V22l7-4.666L19 22V10.132z"></path></svg>
+                    </button>
+
+                    <div id="bookmark" class="hidden absolute py-5 bg-white shadow-lg max-w-[20em] w-full top-full right-0">
+                        <p class="font-bold text-center mb-3">Bookmark</p>
+                        <ul id="list-bookmark">  
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+  <!-- Surat Start Section -->
+  <section id="surat" class="pt-24">
+    <div class="container">
+        <div class="w-full px-4">
+            <h1 id="judul-surat" class="text-center text-teal-500 text-4xl font-bold block"></h1>
+            <div id="cari-ayat" class="text-right py-3 ">
+                <label for="cars" class="text-slate-800 font-bold">Cari Ayat :</label>
+                <select id="list-ayat" class="bg-white text-slate-800" onchange="location=this.value;">
+                </select>
+            </div>
+        </div>
+        <div id="ayat">
+            <div class="h-[47vh] w-full m-auto flex items-center justify-center">
+                <svg role="status" class="mr-2 w-8 h-8 text-gray-200 animate-spin dark:text-gray-600 fill-teal-500" viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z" fill="currentColor"/>
+                    <path d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z" fill="currentFill"/>
+                </svg>
+                </div>
+
+        </div>
+
+    </div>
+  </section>
+  <!-- Surat End Section -->
+
+
+      <!-- Footer start -->
+      <footer class="bg-slate-900 py-12 mt-24">
+        <p class="font-medium text-sm text-slate-500 text-center">Created with <span class="text-red-600">❤</span> By <a href="http://instagram.com/ferdinandaw_" target="_blank" rel="noopener noreferrer" class="font-bold text-primary">Ferdinand Anggris</a>, use Tailwind CSS.</p>
+    </footer>
+    <!-- Footer End -->
+  <script src="dist/js/script.js"></script>
+</body>
+</html>

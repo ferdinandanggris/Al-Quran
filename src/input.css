@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+    background-color: #d1fae5;
+    font-family: 'Poppins',sans-serif;
+}
+
+@font-face {
+    font-family: "arab";
+    src: url("../dist/font/me_quran_volt_newmet.ttf");
+  }
+
+.hamburger-line{
+    @apply w-[30px] h-[3px] my-2 block bg-white;
+}
+
+.isActive{
+    @apply text-white bg-teal-500;
+}
+
+
+
