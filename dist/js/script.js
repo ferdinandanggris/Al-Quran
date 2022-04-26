@@ -135,13 +135,11 @@ fetch("dist/js/surat.json")
     let url = new URL(url_string);
     let surat = url.searchParams.get('surat') || 1;
     data.data.forEach((element) => {
-    if ((element.nomor)==surat) {
-        listSuratTemp += templateSurat(element.surat,element.nomor,"isActive");   
-    }else{
-        listSuratTemp += templateSurat(element.surat,element.nomor);
-    }
+    listSuratTemp += templateSurat(element.surat,element.nomor);
     listSurat.innerHTML = listSuratTemp;
     });
+    const activeSurat = listSurat.querySelector("#surat-"+surat);
+    activeSurat.classList.add('isActive');
 });
 
 
