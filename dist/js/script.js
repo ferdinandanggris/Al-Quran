@@ -1,3 +1,7 @@
+// console.log('test');
+document.addEventListener("DOMContentLoaded", () => {
+
+
 const hamburger = document.querySelector('#hamburger');
 const navMenu = document.querySelector('#nav-menu');
 
@@ -89,7 +93,7 @@ const templateListAyat = function(nomor){
 
 
 // Template Ayat
-const templateAyat = function(nomor,ayat,arti,audio){
+const templateAyat = function(nomor,ayat,arti){
 return `
 <section id="ayat-${nomor}" class="w-full px-4 mb-3 scroll-m-20">
 <div class="overflow-hidden pb-3 rounded-md bg-white">
@@ -109,8 +113,7 @@ return `
     <p class="px-3 font-arab text-3xl py-3 leading-loose" style="direction: rtl;">${ayat}</p>
     <hr class="my-4 px-3 "> 
     <h3 class="text-base my-3 px-3">${arti}</h3>
-    <hr class= "px-3">
-    <audio src="${audio}" controls  class="px-3 w-56 my-3"></audio>
+
 </div>
 </section>`};
 // Template Ayat
@@ -178,18 +181,21 @@ let listAyatTemp = "";
 
 let url_string = window.location;
 let url = new URL(url_string);
+
 let surat = url.searchParams.get('surat') || 1;
-fetch("https://api.quran.sutanlab.id/surah/"+ surat)
-  .then((response) => response.json())
-  .then((data) => {
-    judulSurat.innerHTML = data.data.name.transliteration.id;
-    data.data.verses.forEach((element) => {
-      listAyatTemp += setTemplateListAyat(element.number.inSurah);
-      ayatTemp += setTemplateAyat(
-        element.number.inSurah,
-        element.text.arab,
-        element.translation.id,
-        element.audio.primary
+
+fetch("https://equran.id/api/surat/"+ surat)
+.then((response) => response.json())
+.then((data) => {
+    judulSurat.innerHTML = data.nama_latin;
+    console.log(data.ayat);
+    data.ayat.forEach((element) => {
+        listAyatTemp += setTemplateListAyat(element.surah);
+        ayatTemp += setTemplateAyat(
+        element.nomor,
+        element.ar,
+        element.idn,
+        // data.audio
       );
     });
     ayat.innerHTML = ayatTemp;
@@ -213,8 +219,8 @@ fetch("https://api.quran.sutanlab.id/surah/"+ surat)
 
 
 // push to HTML 
-const setTemplateAyat = function(nomor,ayat,arti,audio){
-    return templateAyat(nomor,ayat,arti,audio);
+const setTemplateAyat = function(nomor,ayat,arti){
+    return templateAyat(nomor,ayat,arti);
 }
 const setTemplateListAyat = function(nomor){
     return templateListAyat(nomor);
@@ -222,4 +228,4 @@ const setTemplateListAyat = function(nomor){
 
 
 
-
+});
